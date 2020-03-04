@@ -1,9 +1,9 @@
-<div class="container">
-    <div *ngFor='let repo of repositories' class="row line" >
+<div class="container" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="300"
+    (scrolled)="onScroll()">
+    <div *ngFor='let repo of repositories' class="row line">
         <div class="col-md-2">
             <div class="image-parent">
-                <img src="{{repo.avatar}}"
-                    class="img-fluid">
+                <img src="{{repo.avatar}}" class="img-fluid">
             </div>
         </div>
         <div class="col-md-10">

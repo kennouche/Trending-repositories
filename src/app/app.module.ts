@@ -9,7 +9,7 @@ import { RepositoryComponent } from './repository/repository.component';
 import { TrendingReposComponent } from './trending-repos/trending-repos.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
-
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,8 @@ import { DatePipe } from '@angular/common';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    InfiniteScrollModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

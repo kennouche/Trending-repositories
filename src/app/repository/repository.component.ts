@@ -12,18 +12,20 @@ export class RepositoryComponent implements OnInit {
 
   //table of type repo (repository) 
   public repositories: Repo[] = [];
-
+  public pageNum =1
   constructor(private dataService: DataService,private datepipe: DatePipe) { }
 
   ngOnInit() {
-    this.getRepos()
+    this.getRepos(this.pageNum)
   }
-  getRepos() {
-    this.dataService.getData().subscribe(
+  onScroll(){
+    this.getRepos(++this.pageNum)
+  }
+  getRepos(pageNum:number) {
+    this.dataService.getData(pageNum).subscribe(
       response => this.handleResponse(response),
       error => this.handleError(error)
     )
-
   }
 
   handleResponse(response: any): void {
@@ -49,8 +51,6 @@ export class RepositoryComponent implements OnInit {
     return +submissionDays
   }
   handleError(error: any): void {
-    throw new Error("Method not implemented.");
+    console.log("Ops! API Problem : the page dosen't exist or you did much request to the API")
   }
-
-  
 }
