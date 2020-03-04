@@ -10,17 +10,21 @@ import { DatePipe } from '@angular/common';
 })
 export class RepositoryComponent implements OnInit {
 
-  //table of type repo (repository) 
-  public repositories: Repo[] = [];
-  public pageNum =1
+  public repositories: Repo[] = []; //table of type repo (repository) will contain the result of request api
+  public pageNum =1 // the page number of the API link
+
   constructor(private dataService: DataService,private datepipe: DatePipe) { }
 
   ngOnInit() {
     this.getRepos(this.pageNum)
   }
+
+  //onScroll is triggered when you scroll down the page
   onScroll(){
     this.getRepos(++this.pageNum)
   }
+  
+  //get the repositories from the api given the page number
   getRepos(pageNum:number) {
     this.dataService.getData(pageNum).subscribe(
       response => this.handleResponse(response),
@@ -44,6 +48,7 @@ export class RepositoryComponent implements OnInit {
     }
   }
 
+  //calculate the submissions days of the repo, by subtracting current date from creatd date of the repo
   getSubmissionsDays(date:Date):number{
     let createdDate=this.datepipe.transform(date,'MM/dd/yyyy');
     let currentDate = this.datepipe.transform(new Date(),'MM/dd/yyyy');
