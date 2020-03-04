@@ -1,0 +1,9 @@
+.line{
+    background-color: #d1e0e0;
+    margin-bottom: 10px;
+    border-radius: 20px 0px 20px 0px;
+  }
+
+.img-fluid{
+    max-width:120px;
+  }

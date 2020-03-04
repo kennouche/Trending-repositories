@@ -1,0 +1,28 @@
+<div class="container">
+    <div *ngFor='let repo of repositories' class="row line" >
+        <div class="col-md-2">
+            <div class="image-parent">
+                <img src="{{repo.avatar}}"
+                    class="img-fluid">
+            </div>
+        </div>
+        <div class="col-md-10">
+            <h5 class="text-muted">{{repo.name}}</h5>
+            <h6>{{repo.description}}</h6>
+            <div class="row line2">
+                <div class="col-md-3">
+                    <button class="btn btn-info" disabled>Stars : {{repo.stars}}</button>
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-info" disabled>Issues : {{repo.issues}}</button>
+                </div>
+                <div class="col-md-6">
+                    <p>
+                        submitted {{repo.submission}} days ago by {{repo.owner}}
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
