@@ -1,6 +1,11 @@
 # TrendingRepos
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.23.
+To run the project foloow the following steps :
+
+1-Clone or download the repository
+2-Run `npm install`
+3-Run `ng serve -o`
 
 ## Development server
 
